@@ -1,32 +1,37 @@
-import Head from 'next/head';
-import Layout, { siteTitle } from '../components/layout';
-import utilStyles from '../styles/utils.module.css';
-import { getSortedPostsData } from '../lib/posts';
-import Link from 'next/link';
-import Date from '../components/date'
+import Head from "next/head"
+import Layout, { siteTitle } from "../components/layout"
+import utilStyles from "../styles/utils.module.css"
+import { getSortedPostsData } from "../lib/posts"
+import Link from "next/link"
+import Date from "../components/date"
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const allPostsData = getSortedPostsData()
   return {
     props: {
       allPostsData,
     },
-  };
+  }
 }
 
-export default function Home({allPostsData}) {
+export default function Home({ allPostsData }) {
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>Hi, I'm Jack. I like to build cool stuff. 
-          I also like to play with new technologies. 
-          Good thing both of those go together!</p>
         <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
+          Hi, I'm Jack. I built this site for a university project for my
+          Advanced Web Programming course.
+        </p>
+        <p>
+          This site has been build using the tutorials on
+          <a href="https://nextjs.org/learn"> the Next.js site</a>.
+        </p>
+        <p>
+          The blog posts here are all from my original blog site over at
+          <a href="https://littlejackcoder.com"> littlejackcoder.com</a>
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
@@ -46,5 +51,5 @@ export default function Home({allPostsData}) {
         </ul>
       </section>
     </Layout>
-  );
+  )
 }
